@@ -15,14 +15,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-        <a href="#home" className="flex items-center gap-3">
-          <img src={logo} alt="Barangay San Isidro logo" className="h-10 w-10 rounded-full object-cover" />
-          <div>
-            <p className="text-sm font-semibold text-slate-900">Barangay San Isidro</p>
-          </div>
-        </a>
+    <header className="sticky top-0 z-50 bg-[rgba(248,249,250,0.8)] backdrop-blur-[12px] shadow-sm border-b border-slate-200/40">
+      <nav className="relative w-full">
+        <div className="mx-auto max-w-9xl px-6 py-3 sm:px-8 lg:px-30 flex items-center justify-between">
+          <a href="#home" className="flex items-center gap-3">
+            <img src={logo} alt="Barangay San Isidro logo" className="h-10 w-10 rounded-full object-cover" />
+            <div>
+              <p className="text-sm font-semibold text-[#004E9F]">Barangay San Isidro</p>
+            </div>
+          </a>
 
         {/* Desktop links */}
         <nav className="hidden md:flex items-center gap-8">
@@ -58,10 +59,12 @@ export default function Navbar() {
           </button>
         </div>
 
+        </div>
+
         {/* Mobile menu panel */}
         {open && (
           <div className="absolute left-0 top-full z-40 w-full bg-white shadow-md md:hidden">
-            <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+            <div className="mx-auto max-w-7xl px-6 py-4 sm:px-8 lg:px-12">
               <div className="flex flex-col gap-3">
                 {navLinks.map((link) => (
                   <a

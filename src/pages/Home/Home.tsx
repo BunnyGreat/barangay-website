@@ -7,6 +7,8 @@ import notificationIcon from "../../assets/icons/notification.svg";
 import Star from "../../assets/icons/star.svg";
 import shieldTwo from "../../assets/icons/shield-2.svg";
 import arrowRightIcon from "../../assets/icons/arrow-right-2.svg";
+import CTA from "../../components/CTA/CTA";
+import Footer from "../../components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -97,6 +99,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="mt-10 mb-10 px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <CTA />
+        </div>
+      </section>
+
+      <Footer />
     </>
   );
 }
