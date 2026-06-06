@@ -7,7 +7,8 @@ export default function CTA() {
           Dedicated to Serving San Isidro
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/90 sm:text-base">
-          Our administration works tirelessly to ensure that every resident has access to the resources they need to thrive.
+          Our administration works tirelessly to ensure that every resident has
+          access to the resources they need to thrive.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
