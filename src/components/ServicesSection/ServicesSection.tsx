@@ -25,7 +25,7 @@ export default function ServicesSection() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-          <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="rounded-[32px] border border-[#C1C6D5] bg-white p-8 shadow-sm">
             <div className="grid gap-6">
               <div className="flex items-start gap-4">
                 <div className="inline-flex h-14 w-14 items-center justify-center rounded-[24px] bg-slate-100 text-slate-900">
@@ -55,7 +55,7 @@ export default function ServicesSection() {
                 title="Document Requests"
                 description="Fast-track permits and certificates online."
                 icon={documentsIcon}
-                className="rounded-[28px] border border-slate-200 bg-slate-50 p-6 shadow-none"
+                className="rounded-[28px] border border-[#C1C6D5] bg-[#F3F4F5] p-6 shadow-none"
                 iconWrapperClassName="h-10 w-10 rounded-2xl bg-white text-[#004E9F]"
                 titleClassName="mb-2 text-base font-semibold text-slate-900"
                 descriptionClassName="text-sm text-slate-600"
@@ -64,7 +64,7 @@ export default function ServicesSection() {
                 title="Community News"
                 description="Stay updated with verified local announcements."
                 icon={megaphoneIcon}
-                className="rounded-[28px] border border-slate-200 bg-slate-50 p-6 shadow-none"
+                className="rounded-[28px] border border-[#C1C6D5] bg-[#F3F4F5] p-6 shadow-none"
                 iconWrapperClassName="h-10 w-10 rounded-2xl bg-white text-[#004E9F]"
                 titleClassName="mb-2 text-base font-semibold text-slate-900"
                 descriptionClassName="text-sm text-slate-600"
@@ -109,13 +109,13 @@ export default function ServicesSection() {
             title="Health Services"
             description="Direct link to local clinic schedules and vaccination records."
             icon={shieldTwo}
-            className="rounded-[28px] bg-slate-100 p-8 shadow-none"
+            className="rounded-[28px] border border-[#C1C6D5] bg-[#F3F4F5] p-8 shadow-none"
             iconWrapperClassName="h-14 w-14 rounded-[20px] bg-white text-[#004E9F]"
             titleClassName="mt-6 text-xl font-semibold text-slate-900"
             descriptionClassName="mt-3 text-sm leading-7 text-slate-600"
           />
 
-          <div className="rounded-[28px] border border-slate-200 bg-white p-8 flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+          <div className="rounded-[28px] border border-[#C1C6D5] bg-white p-8 flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
             <div>
               <h3 className="text-xl font-semibold text-slate-900">
                 Real-time Alerts

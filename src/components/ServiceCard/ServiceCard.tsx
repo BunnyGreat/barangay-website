@@ -19,7 +19,7 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div
-      className={`rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl ${className}`}
+      className={`rounded-2xl border border-[#C1C6D5] bg-[#F3F4F5] p-6 shadow-sm  ${className}`}
     >
       <div
         className={`mb-5 inline-flex items-center justify-center rounded-2xl bg-slate-100 ${iconWrapperClassName}`}
