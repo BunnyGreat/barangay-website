@@ -51,15 +51,14 @@ export default function Navbar() {
             <button
               type="button"
               disabled
-              className={`${buttonClassNames.navPrimary} hidden md:inline-flex`}
+              className={`hidden md:inline-flex ${buttonClassNames.navPrimary.replace("inline-flex", "")}`}
             >
               <img src={phoneIcon} alt="Phone icon" className="h-4 w-4" />
               Download Mobile App
             </button>
 
-            {/* Mobile menu button */}
             <button
-              className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 z-50 bg-white"
+              className="inline-flex md:hidden items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 z-50 bg-white"
               aria-label="Toggle menu"
               aria-expanded={open}
               onClick={() => setOpen((s) => !s)}
@@ -91,7 +90,11 @@ export default function Navbar() {
                   </NavLink>
                 ))}
 
-                <button disabled className={buttonClassNames.navPrimaryFull}>
+                <button
+                  type="button"
+                  disabled
+                  className={`${buttonClassNames.navPrimaryFull} mt-3`}
+                >
                   <img src={phoneIcon} alt="Phone" className="h-4 w-4" />
                   Download Mobile App
                 </button>

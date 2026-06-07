@@ -1,5 +1,5 @@
 ﻿import { bgClassNames, textClassNames } from "../../utils/constants";
-import officialImage from "../../assets/images/officials/1.jpg";
+import officialImage from "../../assets/images/placeholder.jpg";
 import OfficialCard from "../OfficialsCard/OfficialsCard";
 
 const officials = [
