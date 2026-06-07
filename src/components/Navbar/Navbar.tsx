@@ -1,14 +1,12 @@
 ﻿import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import phoneIcon from "../../assets/icons/phone.svg";
 import barsIcon from "../../assets/icons/bars.svg";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
 ];
 
 export default function Navbar() {
@@ -18,7 +16,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-[rgba(248,249,250,0.8)] backdrop-blur-[12px] shadow-sm border-b border-slate-200/40">
       <nav className="relative w-full">
         <div className="mx-auto max-w-9xl px-6 py-3 sm:px-8 lg:px-30 flex items-center justify-between">
-          <a href="#home" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img
               src={logo}
               alt="Barangay San Isidro logo"
@@ -29,18 +27,18 @@ export default function Navbar() {
                 Barangay San Isidro
               </p>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="text-sm font-medium text-[#414753] transition-colors duration-150 hover:text-[#004E9F]"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -72,14 +70,14 @@ export default function Navbar() {
             <div className="mx-auto max-w-7xl px-6 py-4 sm:px-8 lg:px-12">
               <div className="flex flex-col gap-3">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.label}
-                    href={link.href}
+                    to={link.to}
                     className="block rounded-md px-3 py-2 text-base font-medium text-[#414753] hover:bg-slate-50 hover:text-[#004E9F]"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
 
                 <button

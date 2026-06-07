@@ -7,6 +7,7 @@ import notificationIcon from "../../assets/icons/notification.svg";
 import Star from "../../assets/icons/star.svg";
 import shieldTwo from "../../assets/icons/shield-2.svg";
 import arrowRightIcon from "../../assets/icons/arrow-right-2.svg";
+
 export default function ServicesSection() {
   return (
     <section className="bg-slate-50 px-6 py-16 sm:px-8 lg:px-12">
