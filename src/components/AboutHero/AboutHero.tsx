@@ -1,8 +1,9 @@
+import { bgClassNames } from "../../utils/constants";
 import heroImage from "../../assets/images/abouthero.png";
 
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden bg-[#004E9F]">
+    <section className={`relative overflow-hidden ${bgClassNames.primaryBlue}`}>
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImage})` }}

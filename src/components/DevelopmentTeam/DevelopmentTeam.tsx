@@ -1,3 +1,4 @@
+import { textClassNames } from "../../utils/constants";
 import developerImage from "../../assets/images/developer/1.jpg";
 import OfficialCard from "../OfficialsCard/OfficialsCard";
 
@@ -29,7 +30,9 @@ export default function DevelopmentTeam() {
     <section className="px-6 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#004E9F]">
+          <p
+            className={`text-sm font-semibold uppercase tracking-[0.35em] ${textClassNames.primaryBlue}`}
+          >
             Project Development Team
           </p>
           <p className="mt-3 text-base font-normal text-[#414753]">

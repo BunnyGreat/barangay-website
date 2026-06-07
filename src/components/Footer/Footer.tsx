@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { MouseEvent } from "react";
+import { bgClassNames } from "../../utils/constants";
 import logo from "../../assets/images/logo.png";
 import facebookIcon from "../../assets/icons/facebook.svg";
 import shareIcon from "../../assets/icons/share.svg";
@@ -48,7 +49,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0752B0] text-white">
+    <footer className={`${bgClassNames.ctaSection} text-white`}>
       <div className="mx-auto max-w-9xl px-6 py-16 sm:px-8 lg:px-35">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>

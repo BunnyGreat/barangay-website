@@ -1,3 +1,4 @@
+import { buttonClassNames } from "../../utils/constants";
 import heroImage from "../../assets/images/hero.png";
 import arrowRightIcon from "../../assets/icons/arrow-right.svg";
 import meterIcon from "../../assets/icons/meter.svg";
@@ -44,7 +45,9 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-[#004E9F] px-6 py-3 text-sm md:text-base font-semibold text-white shadow-[0_18px_50px_-20px_rgba(0,78,159,0.45)] transition hover:bg-[#003d7c]">
+              <button
+                className={`${buttonClassNames.basePill} w-full sm:w-auto ${buttonClassNames.heroPrimary}`}
+              >
                 Get Started
                 <img
                   src={arrowRightIcon}
@@ -53,7 +56,9 @@ export default function Hero() {
                 />
               </button>
 
-              <button className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl border border-[#004E9F] bg-transparent px-6 py-3 text-sm md:text-base font-semibold text-[#004E9F] transition hover:bg-[#004E9F]/10">
+              <button
+                className={`${buttonClassNames.basePill} w-full sm:w-auto ${buttonClassNames.heroSecondary}`}
+              >
                 Learn More
               </button>
             </div>

@@ -1,4 +1,5 @@
-﻿import officialImage from "../../assets/images/officials/1.jpg";
+﻿import { bgClassNames, textClassNames } from "../../utils/constants";
+import officialImage from "../../assets/images/officials/1.jpg";
 import OfficialCard from "../OfficialsCard/OfficialsCard";
 
 const officials = [
@@ -49,7 +50,9 @@ export default function OfficialsSection() {
     <section className="px-6 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.35em] text-[#004E9F]">
+          <h2
+            className={`text-sm font-semibold uppercase tracking-[0.35em] ${textClassNames.primaryBlue}`}
+          >
             Barangay Leadership
           </h2>
 
@@ -68,7 +71,9 @@ export default function OfficialsSection() {
                 alt="Punong Barangay"
                 className="h-[560px] w-full object-cover"
               />
-              <div className="bg-[#004E9F] px-6 py-6 text-white">
+              <div
+                className={`${bgClassNames.primaryBlue} px-6 py-6 text-white`}
+              >
                 <p className="text-xs font-normal uppercase tracking-[0.45em]">
                   Punong Barangay
                 </p>
@@ -81,7 +86,9 @@ export default function OfficialsSection() {
 
           <div className="space-y-8">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#004E9F]">
+              <p
+                className={`text-sm font-semibold uppercase tracking-[0.35em] ${textClassNames.primaryBlue}`}
+              >
                 Message from the Head
               </p>
               <p className="mt-5 text-lg leading-8 text-[#414753]">
@@ -93,7 +100,9 @@ export default function OfficialsSection() {
 
             <div className="flex items-center gap-4">
               <span className="h-1 w-16 rounded-full bg-[#FCD400]" />
-              <span className="h-1 w-8 rounded-full bg-[#004E9F]" />
+              <span
+                className={`h-1 w-8 rounded-full ${bgClassNames.primaryBlue}`}
+              />
             </div>
           </div>
         </div>

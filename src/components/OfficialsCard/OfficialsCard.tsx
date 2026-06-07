@@ -1,4 +1,6 @@
-﻿type OfficialCardProps = {
+﻿import { textClassNames } from "../../utils/constants";
+
+type OfficialCardProps = {
   image: string;
   position: string;
   name: string;
@@ -16,7 +18,9 @@ export default function OfficialCard({
       </div>
 
       <div className="border-t border-slate-200 px-6 py-5 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#004E9F]">
+        <p
+          className={`text-xs font-semibold uppercase tracking-[0.35em] ${textClassNames.primaryBlue}`}
+        >
           {position}
         </p>
 

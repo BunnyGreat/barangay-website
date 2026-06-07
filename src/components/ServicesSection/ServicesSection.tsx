@@ -1,3 +1,4 @@
+import { bgClassNames, textClassNames } from "../../utils/constants";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import documentsIcon from "../../assets/icons/documents.svg";
 import megaphoneIcon from "../../assets/icons/megaphone.svg";
@@ -13,7 +14,9 @@ export default function ServicesSection() {
     <section className="bg-slate-50 px-6 py-16 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#004E9F]">
+          <p
+            className={`text-sm font-semibold uppercase tracking-[0.24em] ${textClassNames.primaryBlue}`}
+          >
             Barangay Services
           </p>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -36,7 +39,9 @@ export default function ServicesSection() {
                   <h3 className="text-2xl font-semibold text-slate-900">
                     Citizen Service Excellence
                   </h3>
-                  <p className="mt-2 text-sm font-medium text-[#004E9F]">
+                  <p
+                    className={`mt-2 text-sm font-medium ${textClassNames.primaryBlue}`}
+                  >
                     Streamlined Digital Governance
                   </p>
                 </div>
@@ -84,7 +89,9 @@ export default function ServicesSection() {
             </div>
           </div>
 
-          <div className="rounded-[28px] bg-[#004E9F] p-8 text-white shadow-sm ring-1 ring-white/10">
+          <div
+            className={`${bgClassNames.primaryBlue} rounded-[28px] p-8 text-white shadow-sm ring-1 ring-white/10`}
+          >
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-white/10 text-white">
               <img
                 src={shieldIcon}
@@ -126,7 +133,7 @@ export default function ServicesSection() {
                 events.
               </p>
               <a
-                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#004E9F]"
+                className={`mt-4 inline-flex items-center gap-2 text-sm font-semibold ${textClassNames.primaryBlue}`}
                 href="#"
               >
                 View Alerts{" "}
