@@ -1,5 +1,4 @@
 import { buttonClassNames } from "../../utils/constants";
-import heroImage from "../../assets/images/hero.png";
 import arrowRightIcon from "../../assets/icons/arrow-right.svg";
 import meterIcon from "../../assets/icons/meter.svg";
 import checkIcon from "../../assets/icons/check.svg";
@@ -68,7 +67,7 @@ export default function Hero() {
           <div className="relative">
             <div className="overflow-hidden rounded-[32px]">
               <img
-                src={heroImage}
+                src="/images/hero.png"
                 alt="Barangay Digital Services"
                 className="w-full object-cover"
               />
