@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { buttonClassNames, textClassNames } from "../../utils/constants";
 import { NAV_LINKS } from "../../utils/navigation";
 import logo from "../../assets/images/logo.png";
@@ -31,13 +31,19 @@ export default function Navbar() {
           {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
-              <Link
+              <NavLink
                 key={link.label}
                 to={link.to}
-                className={`text-sm font-medium text-[#414753] transition-colors duration-150 ${textClassNames.hoverPrimaryBlue}`}
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors duration-150 ${
+                    isActive
+                      ? `${textClassNames.primaryBlue}`
+                      : `text-[#414753] ${textClassNames.hoverPrimaryBlue}`
+                  }`
+                }
               >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
 
@@ -69,14 +75,20 @@ export default function Navbar() {
             <div className="mx-auto max-w-7xl px-6 py-4 sm:px-8 lg:px-12">
               <div className="flex flex-col gap-3">
                 {NAV_LINKS.map((link) => (
-                  <Link
+                  <NavLink
                     key={link.label}
                     to={link.to}
-                    className={`block rounded-md px-3 py-2 text-base font-medium text-[#414753] hover:bg-slate-50 ${textClassNames.hoverPrimaryBlue}`}
+                    className={({ isActive }) =>
+                      `block rounded-md px-3 py-2 text-base font-medium ${
+                        isActive
+                          ? `${textClassNames.primaryBlue} bg-slate-50`
+                          : `text-[#414753] hover:bg-slate-50 ${textClassNames.hoverPrimaryBlue}`
+                      }`
+                    }
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
-                  </Link>
+                  </NavLink>
                 ))}
 
                 <button disabled className={buttonClassNames.navPrimaryFull}>

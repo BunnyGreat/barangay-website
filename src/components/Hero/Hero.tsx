@@ -52,7 +52,7 @@ export default function Hero() {
                 <img
                   src={arrowRightIcon}
                   alt="Arrow icon"
-                  className="h-4 w-4"
+                  className="h-6 w-4 ml-2"
                 />
               </button>
 
