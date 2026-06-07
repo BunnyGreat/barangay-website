@@ -1,6 +1,7 @@
 import { textClassNames } from "../../utils/constants";
 import developerImage from "../../assets/images/developer/1.jpg";
 import OfficialCard from "../OfficialsCard/OfficialsCard";
+import developerImage2 from "../../assets/images/developer/2.jpg";
 
 const developers = [
   {
@@ -14,7 +15,7 @@ const developers = [
     name: "John Lloyd L. Nadura",
   },
   {
-    image: developerImage,
+    image: developerImage2,
     position: "Developer",
     name: "Cash S. Mabuti",
   },
