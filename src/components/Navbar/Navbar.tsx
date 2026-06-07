@@ -1,14 +1,10 @@
 ﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import { buttonClassNames, textClassNames } from "../../utils/constants";
+import { NAV_LINKS } from "../../utils/navigation";
 import logo from "../../assets/images/logo.png";
 import phoneIcon from "../../assets/icons/phone.svg";
 import barsIcon from "../../assets/icons/bars.svg";
-
-const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -34,7 +30,7 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 to={link.to}
@@ -72,7 +68,7 @@ export default function Navbar() {
           <div className="absolute left-0 top-full z-40 w-full bg-white shadow-md md:hidden">
             <div className="mx-auto max-w-7xl px-6 py-4 sm:px-8 lg:px-12">
               <div className="flex flex-col gap-3">
-                {navLinks.map((link) => (
+                {NAV_LINKS.map((link) => (
                   <Link
                     key={link.label}
                     to={link.to}

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { MouseEvent } from "react";
+import { Link } from "react-router-dom";
 import { bgClassNames } from "../../utils/constants";
+import { NAV_LINKS } from "../../utils/navigation";
 import logo from "../../assets/images/logo.png";
 import facebookIcon from "../../assets/icons/facebook.svg";
 import shareIcon from "../../assets/icons/share.svg";
@@ -105,31 +107,13 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="mt-6 space-y-3 text-slate-100">
-              <li>
-                <a className="hover:underline" href="#">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="hover:underline" href="#">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a className="hover:underline" href="#">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a className="hover:underline" href="#">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a className="hover:underline" href="#">
-                  Contact
-                </a>
-              </li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="hover:underline">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
