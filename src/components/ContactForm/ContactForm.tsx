@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { buttonClassNames, DARK_COLORS } from "../../utils/constants";
 import useDarkMode from "../../hooks/useDarkMode";
-import arrowRightIcon from "../../assets/icons/arrow-right.svg";
+import arrowRightIcon from "../../assets/icons/send.svg";
 
 type FormData = {
   fullName: string;
@@ -195,11 +195,7 @@ export default function ContactForm() {
           <div className="pt-4">
             <button
               type="submit"
-              className={`${buttonClassNames.basePill} inline-flex items-center gap-2`}
-              style={{
-                backgroundColor: isDark ? "#4D94FF" : undefined,
-                color: isDark ? "#000000" : undefined,
-              }}
+              className={`${buttonClassNames.basePill} ${buttonClassNames.heroPrimary} inline-flex items-center gap-2`}
             >
               Send Message
               <img src={arrowRightIcon} alt="Send" className="h-4 w-4" />
