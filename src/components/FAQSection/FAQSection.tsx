@@ -30,7 +30,10 @@ const faqData: FAQ[] = [
 
 export default function FAQSection() {
   return (
-    <section className="px-6 mb-6 sm:px-8 lg:px-12">
+    <section
+      className="px-6 mb-6 sm:px-8 lg:px-12"
+      style={{ backgroundColor: "transparent" }}
+    >
       <div className="mx-auto max-w-3xl">
         <div className="space-y-4">
           {faqData.map((faq) => (

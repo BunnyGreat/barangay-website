@@ -1,14 +1,29 @@
-import { bgClassNames } from "../../utils/constants";
+import { bgClassNames, DARK_COLORS } from "../../utils/constants";
+import useDarkMode from "../../hooks/useDarkMode";
 import heroImage from "../../assets/images/abouthero.png";
+import heroImageDark from "../../assets/images/aboutherodark.png";
 
 export default function AboutHero() {
+  const isDark = useDarkMode();
+  const currentHeroImage = isDark ? heroImageDark : heroImage;
+
   return (
-    <section className={`relative overflow-hidden ${bgClassNames.primaryBlue}`}>
+    <section
+      className={`relative overflow-hidden ${bgClassNames.primaryBlue}`}
+      style={{ backgroundColor: isDark ? DARK_COLORS.primary : undefined }}
+    >
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(${currentHeroImage})` }}
       />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,78,159,0.8),rgba(0,78,159,0))]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: isDark
+            ? `linear-gradient(180deg, rgba(12,19,36,0.6) 0%, rgba(12,19,32,0.4) 50%, rgba(12,19,32,0.8) 100%)`
+            : `linear-gradient(180deg, rgba(0,78,159,0.8), rgba(0,78,159,0))`,
+        }}
+      />
 
       <div className="relative z-10 px-6 py-28 sm:px-8 lg:px-16">
         <div className="mx-auto max-w-7xl">

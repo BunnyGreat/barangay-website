@@ -1,4 +1,9 @@
-﻿import { bgClassNames, textClassNames } from "../../utils/constants";
+﻿import {
+  bgClassNames,
+  textClassNames,
+  DARK_COLORS,
+} from "../../utils/constants";
+import useDarkMode from "../../hooks/useDarkMode";
 import officialImage from "../../assets/images/placeholder.jpg";
 import OfficialCard from "../OfficialsCard/OfficialsCard";
 
@@ -46,17 +51,23 @@ const officials = [
 ];
 
 export default function OfficialsSection() {
+  const isDark = useDarkMode();
+
   return (
     <section className="px-6 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <h2
             className={`text-sm font-semibold uppercase tracking-[0.35em] ${textClassNames.primaryBlue}`}
+            style={{ color: isDark ? DARK_COLORS.primary : undefined }}
           >
             Barangay Leadership
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#414753]">
+          <p
+            className="mx-auto mt-4 max-w-2xl text-base leading-7"
+            style={{ color: isDark ? DARK_COLORS.paragraph : "#414753" }}
+          >
             The dedicated officials of Barangay San Isidro serving the community
             with integrity and transparency.
           </p>
@@ -73,6 +84,9 @@ export default function OfficialsSection() {
               />
               <div
                 className={`${bgClassNames.primaryBlue} px-6 py-6 text-white`}
+                style={{
+                  backgroundColor: isDark ? DARK_COLORS.primary : undefined,
+                }}
               >
                 <p className="text-xs font-normal uppercase tracking-[0.45em]">
                   Punong Barangay
@@ -91,7 +105,10 @@ export default function OfficialsSection() {
               >
                 Message from the Head
               </p>
-              <p className="mt-5 text-lg leading-8 text-[#414753]">
+              <p
+                className="mt-5 text-lg leading-8"
+                style={{ color: isDark ? DARK_COLORS.paragraph : "#414753" }}
+              >
                 “Our commitment is to build a safer, more progressive San Isidro
                 through digital innovation and inclusive governance. Together,
                 we are shaping a future where every resident thrives.”
@@ -102,6 +119,9 @@ export default function OfficialsSection() {
               <span className="h-1 w-16 rounded-full bg-[#FCD400]" />
               <span
                 className={`h-1 w-8 rounded-full ${bgClassNames.primaryBlue}`}
+                style={{
+                  backgroundColor: isDark ? DARK_COLORS.primary : undefined,
+                }}
               />
             </div>
           </div>

@@ -21,6 +21,33 @@ export const borderClassNames = {
   primaryBlue: "border-[#004E9F]",
 };
 
+export const DARK_COLORS = {
+  // Primary & Accent
+  primary: "#AAC7FF",           // Primary Light
+  secondary: "#FCD400",         // Gold (reused)
+  accent: "#A8FCA1",            // Accent Green
+  
+  // Backgrounds
+  background: "#000814",        // Darkest (main BG)
+  backgroundAlt: "#070E1B",     // Dark variant (cards)
+  surface: "#323948",           // Surface neutral
+  
+  // Cards
+  card: "#070E1B",              // Card background
+  cardBorder: "#414753",        // Card border
+  
+  // Typography
+  heading: "#E1E3E4",           // Heading text
+  paragraph: "#C1C6D5",         // Paragraph text
+  footerIcon: "#4D94FF",
+  footerBorder: "rgba(65, 71, 83, 0.3)",
+  ctaBackground: "#151C29",     // CTA section wrapper background
+  
+  // Derived
+  hover: "#414753",             // Hover state color
+  disabled: "#414753",          // Disabled state
+};
+
 export const buttonClassNames = {
   base: "inline-flex rounded-full px-8 py-3 text-sm font-semibold transition",
   basePill: "inline-flex rounded-2xl px-6 py-3 text-sm md:text-base font-semibold transition",

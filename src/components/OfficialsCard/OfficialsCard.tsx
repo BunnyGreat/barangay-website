@@ -1,4 +1,5 @@
-﻿import { textClassNames } from "../../utils/constants";
+﻿import { DARK_COLORS } from "../../utils/constants";
+import useDarkMode from "../../hooks/useDarkMode";
 
 type OfficialCardProps = {
   image: string;
@@ -11,9 +12,22 @@ export default function OfficialCard({
   position,
   name,
 }: OfficialCardProps) {
+  const isDark = useDarkMode();
+
   return (
-    <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
-      <div className="overflow-hidden rounded-t-[30px] bg-slate-100">
+    <div
+      className="overflow-hidden rounded-[30px] border shadow-sm transition-colors duration-200"
+      style={{
+        backgroundColor: isDark ? DARK_COLORS.card : "#ffffff",
+        borderColor: isDark ? DARK_COLORS.cardBorder : "#e2e8f0",
+      }}
+    >
+      <div
+        className="overflow-hidden rounded-t-[30px] transition-colors duration-200"
+        style={{
+          backgroundColor: isDark ? DARK_COLORS.surface : "#f3f4f6",
+        }}
+      >
         <img
           src={image}
           alt={name}
@@ -22,14 +36,25 @@ export default function OfficialCard({
         />
       </div>
 
-      <div className="border-t border-slate-200 px-6 py-5 text-center">
+      <div
+        className="border-t px-6 py-5 text-center transition-colors duration-200"
+        style={{
+          borderColor: isDark ? DARK_COLORS.cardBorder : "#e2e8f0",
+        }}
+      >
         <p
-          className={`text-xs font-semibold uppercase tracking-[0.35em] ${textClassNames.primaryBlue}`}
+          className={`text-xs font-semibold uppercase tracking-[0.35em] transition-colors duration-200`}
+          style={{ color: isDark ? DARK_COLORS.primary : "#004E9F" }}
         >
           {position}
         </p>
 
-        <h3 className="mt-3 text-base font-semibold text-slate-900">{name}</h3>
+        <h3
+          className="mt-3 text-base font-semibold transition-colors duration-200"
+          style={{ color: isDark ? DARK_COLORS.heading : "#1f2937" }}
+        >
+          {name}
+        </h3>
       </div>
     </div>
   );

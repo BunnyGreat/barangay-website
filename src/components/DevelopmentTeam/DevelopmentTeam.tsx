@@ -1,4 +1,5 @@
-import { textClassNames } from "../../utils/constants";
+import { textClassNames, DARK_COLORS } from "../../utils/constants";
+import useDarkMode from "../../hooks/useDarkMode";
 import developerImage from "../../assets/images/developer/1.jpg";
 import OfficialCard from "../OfficialsCard/OfficialsCard";
 import developerImage2 from "../../assets/images/developer/2.jpg";
@@ -27,16 +28,21 @@ const developers = [
 ];
 
 export default function DevelopmentTeam() {
+  const isDark = useDarkMode();
   return (
     <section className="px-6 py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <p
             className={`text-sm font-semibold uppercase tracking-[0.35em] ${textClassNames.primaryBlue}`}
+            style={{ color: isDark ? DARK_COLORS.primary : undefined }}
           >
             Project Development Team
           </p>
-          <p className="mt-3 text-base font-normal text-[#414753]">
+          <p
+            className="mt-3 text-base font-normal"
+            style={{ color: isDark ? DARK_COLORS.paragraph : "#414753" }}
+          >
             Our team builds simple and secure tools to help our local community
             run smoothly. With our skills in tech and data, we make daily work
             easier and safer for everyone.
