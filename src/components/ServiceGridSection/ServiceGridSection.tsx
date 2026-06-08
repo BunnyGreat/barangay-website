@@ -3,6 +3,7 @@ import checkshieldIcon from "../../assets/icons/check-guard.svg";
 import phoneIcon2 from "../../assets/icons/phone2.svg";
 import phoneIcon from "../../assets/icons/phone.svg";
 import { buttonClassNames } from "../../utils/constants";
+import useDarkMode from "../../hooks/useDarkMode";
 
 type Service = {
   title: string;
@@ -36,20 +37,45 @@ const services: Service[] = [
 ];
 
 export default function ServiceGridSection() {
+  const isDark = useDarkMode();
   return (
-    <section className="px-6 mb-12 sm:px-8 lg:px-13">
+    <section
+      className="px-6 mb-12 sm:px-8 lg:px-13 transition-colors duration-200"
+      style={{ backgroundColor: "transparent" }}
+    >
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px] gap-4">
           {services.map((s) => {
             const isPublicAccess = s.title === "Public Access";
+            const iconPath = s.icon?.toString() || "";
+            const isSpecialBlue =
+              iconPath.endsWith("megaphone.svg") ||
+              iconPath.endsWith("check-guard.svg");
             return (
               <article
                 key={s.title}
-                className={`flex ${isPublicAccess ? "w-full" : "h-full"} flex-col justify-between rounded-3xl p-5 shadow-sm ${
-                  isPublicAccess
-                    ? "bg-slate-950 text-white"
-                    : "bg-white border border-slate-200 text-slate-800"
-                }`}
+                className={`flex ${isPublicAccess ? "w-full" : "h-full"} flex-col justify-between rounded-3xl p-5 shadow-sm`}
+                style={{
+                  backgroundColor: isPublicAccess
+                    ? isDark
+                      ? "#2A3F52"
+                      : "#0f1724"
+                    : isDark
+                      ? "#151C29"
+                      : "#ffffff",
+                  borderColor: isPublicAccess
+                    ? undefined
+                    : isDark
+                      ? "rgba(65,71,83,0.3)"
+                      : undefined,
+                  color: isPublicAccess
+                    ? isDark
+                      ? "#ffffff"
+                      : "#ffffff"
+                    : isDark
+                      ? "#ffffff"
+                      : "#0f172a",
+                }}
               >
                 <div
                   className={
@@ -59,25 +85,52 @@ export default function ServiceGridSection() {
                   }
                 >
                   <div
-                    className={`flex h-11 w-11 items-center justify-center rounded-2xl ${isPublicAccess ? "bg-slate-800/70" : "bg-slate-100"}`}
+                    className={`flex h-11 w-11 items-center justify-center rounded-2xl`}
+                    style={{
+                      backgroundColor: isPublicAccess
+                        ? isDark
+                          ? "#070E1B"
+                          : "rgba(255,255,255,0.06)"
+                        : isSpecialBlue && isDark
+                          ? "rgba(77,148,255,0.1)"
+                          : isDark
+                            ? "#070E1B"
+                            : "#f1f5f9",
+                    }}
                   >
                     {s.icon && (
                       <img
                         src={s.icon}
                         alt={`${s.title} icon`}
-                        className={`h-5 w-5 ${isPublicAccess ? "filter brightness-200" : ""}`}
+                        className={`h-5 w-5 ${isPublicAccess && isDark ? "filter brightness-125 contrast-125" : ""}`}
                       />
                     )}
                   </div>
 
                   <div className={isPublicAccess ? "max-w-[220px]" : ""}>
                     <h3
-                      className={`text-lg font-semibold ${isPublicAccess ? "text-white" : "text-slate-900"}`}
+                      className={`text-lg font-semibold`}
+                      style={{
+                        color: isPublicAccess
+                          ? "#ffffff"
+                          : isDark
+                            ? "#ffffff"
+                            : undefined,
+                      }}
                     >
                       {s.title}
                     </h3>
                     <p
-                      className={`mt-3 text-sm leading-7 ${isPublicAccess ? "text-white/70" : "text-slate-600"}`}
+                      className="mt-3 text-sm leading-7"
+                      style={{
+                        color: isPublicAccess
+                          ? isDark
+                            ? "rgba(255,255,255,0.7)"
+                            : "rgba(255,255,255,0.7)"
+                          : isDark
+                            ? "rgba(255,255,255,0.7)"
+                            : undefined,
+                      }}
                     >
                       {s.description}
                     </p>
@@ -88,6 +141,10 @@ export default function ServiceGridSection() {
                   <div className="mt-5 flex justify-center">
                     <button
                       className={`${buttonClassNames.heroPrimary} inline-flex items-center gap-2 px-5 py-3 rounded-[8%]`}
+                      style={{
+                        backgroundColor: isDark ? "#4D94FF" : undefined,
+                        color: isDark ? "#ffffff" : undefined,
+                      }}
                     >
                       {s.buttonIcon && (
                         <img

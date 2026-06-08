@@ -1,7 +1,8 @@
-import documentsIcon from "../../assets/icons/documents.svg";
+import IdIcon from "../../assets/icons/id.svg";
 import documentsSmallIcon from "../../assets/icons/document.svg";
 import ServiceFeatureCard from "../ServiceFeatureCard/ServiceFeatureCard";
 import featuredImage from "../../assets/images/officials/1.jpg";
+// removed unused useDarkMode import
 
 type FeaturedService = {
   icon: string;
@@ -14,7 +15,7 @@ type FeaturedService = {
 
 const featuredServices: FeaturedService[] = [
   {
-    icon: documentsIcon,
+    icon: IdIcon,
     title: "Resident Information Management",
     description:
       "Securely update and manage your household profile. Our encrypted database ensures your personal data is handled with the highest standards of privacy and administrative accuracy.",
@@ -33,7 +34,10 @@ const featuredServices: FeaturedService[] = [
 
 export default function ServiceFeatureSection() {
   return (
-    <section className="px-6 py-6 sm:px-8 lg:px-12">
+    <section
+      className="px-6 py-6 sm:px-8 lg:px-12 transition-colors duration-200"
+      style={{ backgroundColor: "transparent" }}
+    >
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-[1.45fr_1fr] gap-6 items-stretch">
           {featuredServices.map((service) => (

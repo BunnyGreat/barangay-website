@@ -1,4 +1,5 @@
-import { bgClassNames, buttonClassNames } from "../../utils/constants";
+import { buttonClassNames, DARK_COLORS } from "../../utils/constants";
+import useDarkMode from "../../hooks/useDarkMode";
 
 export type ServiceFeatureCardProps = {
   icon: string;
@@ -19,39 +20,64 @@ export default function ServiceFeatureCard({
   buttonText,
   variant = "light",
 }: ServiceFeatureCardProps) {
+  const isDark = useDarkMode();
   const isPrimary = variant === "primary";
 
-  const containerClass = isPrimary
-    ? `rounded-[32px] p-6 md:p-8 ${bgClassNames.primaryBlue} text-white h-full`
-    : `rounded-[32px] p-6 md:p-8 bg-white border border-slate-200 text-slate-800 h-full`;
+  const containerStyle = isPrimary
+    ? {
+        backgroundColor: isDark ? "#00458E" : "#004E9F",
+        borderColor: "transparent",
+      }
+    : {
+        backgroundColor: isDark ? "#151C29" : "#ffffff",
+        borderColor: isDark ? "rgba(65,71,83,0.3)" : "#e2e8f0",
+      };
 
-  const titleClass = isPrimary
-    ? "text-2xl font-semibold tracking-tight"
-    : "text-2xl font-semibold tracking-tight";
+  const containerClass = `rounded-[32px] p-6 md:p-8 text-white h-full border transition-colors duration-200 ${
+    isPrimary ? "text-white" : ""
+  }`;
 
-  const descClass = isPrimary
-    ? "mt-4 text-sm leading-7 text-white/90"
-    : "mt-4 text-sm leading-7 text-slate-700";
+  const titleStyle = {
+    color: isPrimary ? "white" : isDark ? DARK_COLORS.heading : "#1f2937",
+  };
+
+  const titleClass = "text-2xl font-semibold tracking-tight";
+
+  const descStyle = {
+    color: isPrimary
+      ? "rgba(255,255,255,0.9)"
+      : isDark
+        ? DARK_COLORS.paragraph
+        : "#374151",
+  };
+
+  const descClass = "mt-4 text-sm leading-7";
 
   const badgeClass = () =>
     isPrimary
       ? `inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white`
-      : `inline-flex items-center gap-2 rounded-full bg-[#FCD400] px-3 py-1 text-xs font-semibold text-slate-950`;
-
-  const btnClass = isPrimary
-    ? `${buttonClassNames.ctaSecondary} ${buttonClassNames.basePill}`
-    : `${buttonClassNames.ctaPrimary} ${buttonClassNames.basePill}`;
+      : `inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold transition-colors duration-200 ${
+          isDark ? "bg-[#FCD400] text-[#221B00]" : "bg-[#FCD400] text-[#221B00]"
+        }`;
 
   return (
-    <article className={containerClass}>
+    <article className={containerClass} style={containerStyle}>
       <div className="grid grid-cols-1 md:grid-cols-[1.4fr_0.95fr] gap-6 items-start">
         <div className="flex flex-col justify-between gap-6 h-full">
           <div className="space-y-5">
             <div className="space-y-4">
               <div
-                className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${
-                  isPrimary ? "bg-white/15" : "bg-slate-100"
-                }`}
+                className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-colors duration-200`}
+                style={{
+                  backgroundColor: isPrimary
+                    ? "rgba(255,255,255,0.15)"
+                    : (() => {
+                        const iconPath = icon?.toString() || "";
+                        const isIdIcon = iconPath.endsWith("id.svg");
+                        if (isIdIcon && isDark) return "rgba(77,148,255,0.1)";
+                        return isDark ? "#070E1B" : "#f3f4f6";
+                      })(),
+                }}
               >
                 <img
                   src={icon}
@@ -60,11 +86,15 @@ export default function ServiceFeatureCard({
                 />
               </div>
               <div>
-                <h3 className={titleClass}>{title}</h3>
+                <h3 className={titleClass} style={titleStyle}>
+                  {title}
+                </h3>
               </div>
             </div>
 
-            <p className={descClass}>{description}</p>
+            <p className={descClass} style={descStyle}>
+              {description}
+            </p>
 
             {badges.length > 0 && (
               <div className="flex flex-wrap gap-3">
@@ -79,7 +109,22 @@ export default function ServiceFeatureCard({
 
           {buttonText && (
             <div>
-              <button className={btnClass} type="button">
+              <button
+                className={`${buttonClassNames.basePill} transition-colors duration-200 ${
+                  isPrimary ? "bg-white text-blue-900" : ""
+                }`}
+                style={
+                  !isPrimary
+                    ? {
+                        backgroundColor: isDark
+                          ? DARK_COLORS.primary
+                          : "#004E9F",
+                        color: "white",
+                      }
+                    : undefined
+                }
+                type="button"
+              >
                 {buttonText}
               </button>
             </div>
@@ -88,7 +133,12 @@ export default function ServiceFeatureCard({
 
         {image ? (
           <div className="hidden md:block">
-            <div className="overflow-hidden rounded-[28px] bg-slate-100 shadow-sm">
+            <div
+              className="overflow-hidden rounded-[28px] shadow-sm transition-colors duration-200"
+              style={{
+                backgroundColor: isDark ? "#070E1B" : "#f3f4f6",
+              }}
+            >
               <img
                 src={image}
                 alt={title}

@@ -4,8 +4,11 @@ import OfficialsSection from "../../components/OfficialsSection/OfficialsSection
 import DevelopmentTeam from "../../components/DevelopmentTeam/DevelopmentTeam";
 import CTA from "../../components/CTA/CTA";
 import Footer from "../../components/Footer/Footer";
+import useDarkMode from "../../hooks/useDarkMode";
+import { DARK_COLORS } from "../../utils/constants";
 
 export default function About() {
+  const isDark = useDarkMode();
   return (
     <>
       <AboutHero />
@@ -13,11 +16,16 @@ export default function About() {
       <OfficialsSection />
       <DevelopmentTeam />
 
-      <section className="mt-10 mb-10 px-6 sm:px-8 lg:px-12">
+      <section
+        className="px-6 py-12 sm:px-8 sm:py-14 lg:px-12 lg:py-16"
+        style={{
+          backgroundColor: isDark ? DARK_COLORS.ctaBackground : undefined,
+        }}
+      >
         <div className="mx-auto max-w-7xl">
           <CTA
             title="Dedicated to Serving San Isidro"
-            description="Our administration works tirelessly to ensure that every resident has access to the resources they need to thrive.."
+            description="Our administration works tirelessly to ensure that every resident has access to the resources they need to thrive."
           />
         </div>
       </section>
