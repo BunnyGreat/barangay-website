@@ -2,6 +2,49 @@ import { buttonClassNames, DARK_COLORS } from "../../utils/constants";
 import useDarkMode from "../../hooks/useDarkMode";
 import { Link } from "react-router-dom";
 
+function getServiceFeatureCardTheme(
+  isDark: boolean,
+  isPrimary: boolean,
+  icon: string,
+) {
+  if (isPrimary) {
+    return {
+      container: {
+        backgroundColor: isDark ? "#00458E" : "#004E9F",
+        borderColor: "transparent",
+      },
+      title: { color: "white" },
+      description: { color: "rgba(255,255,255,0.9)" },
+      badgeClassName:
+        "inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white",
+      iconBackgroundColor: "rgba(255,255,255,0.15)",
+      button: undefined,
+    };
+  }
+
+  const isIdIcon = icon.endsWith("id.svg");
+
+  return {
+    container: {
+      backgroundColor: isDark ? "#151C29" : "#ffffff",
+      borderColor: isDark ? "rgba(65,71,83,0.3)" : "#e2e8f0",
+    },
+    title: { color: isDark ? DARK_COLORS.heading : "#1f2937" },
+    description: { color: isDark ? DARK_COLORS.paragraph : "#374151" },
+    badgeClassName:
+      "inline-flex items-center gap-2 rounded-full bg-[#FCD400] px-3 py-1 text-xs font-semibold text-[#221B00] transition-colors duration-200",
+    iconBackgroundColor: isIdIcon && isDark
+      ? "rgba(77,148,255,0.1)"
+      : isDark
+        ? "#070E1B"
+        : "#f3f4f6",
+    button: {
+      backgroundColor: isDark ? DARK_COLORS.primary : "#004E9F",
+      color: "white",
+    },
+  };
+}
+
 export type ServiceFeatureCardProps = {
   icon: string;
   title: string;
@@ -25,46 +68,17 @@ export default function ServiceFeatureCard({
 }: ServiceFeatureCardProps) {
   const isDark = useDarkMode();
   const isPrimary = variant === "primary";
-
-  const containerStyle = isPrimary
-    ? {
-        backgroundColor: isDark ? "#00458E" : "#004E9F",
-        borderColor: "transparent",
-      }
-    : {
-        backgroundColor: isDark ? "#151C29" : "#ffffff",
-        borderColor: isDark ? "rgba(65,71,83,0.3)" : "#e2e8f0",
-      };
+  const theme = getServiceFeatureCardTheme(isDark, isPrimary, icon);
 
   const containerClass = `rounded-[32px] p-6 md:p-8 text-white h-full border transition-colors duration-200 ${
     isPrimary ? "text-white" : ""
   }`;
 
-  const titleStyle = {
-    color: isPrimary ? "white" : isDark ? DARK_COLORS.heading : "#1f2937",
-  };
-
   const titleClass = "text-2xl font-semibold tracking-tight";
-
-  const descStyle = {
-    color: isPrimary
-      ? "rgba(255,255,255,0.9)"
-      : isDark
-        ? DARK_COLORS.paragraph
-        : "#374151",
-  };
-
   const descClass = "mt-4 text-sm leading-7";
 
-  const badgeClass = () =>
-    isPrimary
-      ? `inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white`
-      : `inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold transition-colors duration-200 ${
-          isDark ? "bg-[#FCD400] text-[#221B00]" : "bg-[#FCD400] text-[#221B00]"
-        }`;
-
   return (
-    <article className={containerClass} style={containerStyle}>
+    <article className={containerClass} style={theme.container}>
       <div
         className={`grid grid-cols-1 items-start gap-6 ${image ? "md:grid-cols-[1.4fr_0.95fr]" : ""}`}
       >
@@ -74,14 +88,7 @@ export default function ServiceFeatureCard({
               <div
                 className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-colors duration-200`}
                 style={{
-                  backgroundColor: isPrimary
-                    ? "rgba(255,255,255,0.15)"
-                    : (() => {
-                        const iconPath = icon?.toString() || "";
-                        const isIdIcon = iconPath.endsWith("id.svg");
-                        if (isIdIcon && isDark) return "rgba(77,148,255,0.1)";
-                        return isDark ? "#070E1B" : "#f3f4f6";
-                      })(),
+                  backgroundColor: theme.iconBackgroundColor,
                 }}
               >
                 <img
@@ -91,20 +98,20 @@ export default function ServiceFeatureCard({
                 />
               </div>
               <div>
-                <h3 className={titleClass} style={titleStyle}>
+                <h3 className={titleClass} style={theme.title}>
                   {title}
                 </h3>
               </div>
             </div>
 
-            <p className={descClass} style={descStyle}>
+            <p className={descClass} style={theme.description}>
               {description}
             </p>
 
             {badges.length > 0 && (
               <div className="flex flex-wrap gap-3">
                 {badges.map((b) => (
-                  <span key={b} className={badgeClass()}>
+                  <span key={b} className={theme.badgeClassName}>
                     {b}
                   </span>
                 ))}
@@ -119,16 +126,7 @@ export default function ServiceFeatureCard({
                 className={`${buttonClassNames.basePill} transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
                   isPrimary ? "bg-white text-blue-900" : ""
                 }`}
-                style={
-                  !isPrimary
-                    ? {
-                        backgroundColor: isDark
-                          ? DARK_COLORS.primary
-                          : "#004E9F",
-                        color: "white",
-                      }
-                    : undefined
-                }
+                style={theme.button}
               >
                 {buttonText}
               </Link>

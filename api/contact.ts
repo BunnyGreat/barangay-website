@@ -29,6 +29,12 @@ const recipient = "johnlloydnadura4@gmail.com";
 const visitorCookieName = "contact_visitor";
 const visitorCookieMaxAgeSeconds = 60 * 60 * 24 * 400;
 const reservationPrefix = "pending:";
+const manilaDateFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: "Asia/Manila",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
 
 const reserveScript = `
 local current = redis.call("GET", KEYS[1])
@@ -145,12 +151,7 @@ function getManilaDay(now: Date): {
   day: string;
   nextMidnight: Date;
 } {
-  const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: "Asia/Manila",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(now);
+  const parts = manilaDateFormatter.formatToParts(now);
   const values = Object.fromEntries(
     parts.map(({ type, value }) => [type, value]),
   );

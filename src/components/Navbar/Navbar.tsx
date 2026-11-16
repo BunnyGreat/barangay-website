@@ -21,7 +21,7 @@ export default function Navbar() {
         borderColor: isDark ? DARK_COLORS.cardBorder : "#e2e8f0",
       }}
     >
-      <nav className="relative w-full">
+      <div className="relative w-full">
         <div className="mx-auto max-w-9xl px-6 py-3 sm:px-8 lg:px-30 flex items-center justify-between">
           <Link
             to="/"
@@ -43,7 +43,10 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop links */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav
+            aria-label="Primary navigation"
+            className="hidden md:flex items-center gap-8"
+          >
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.label}
@@ -102,6 +105,7 @@ export default function Navbar() {
           >
             <div className="mx-auto max-w-7xl px-6 py-4 sm:px-8 lg:px-12">
               <div className="flex flex-col gap-3">
+                <nav aria-label="Mobile navigation" className="flex flex-col gap-3">
                 {NAV_LINKS.map((link) => (
                   <NavLink
                     key={link.label}
@@ -126,6 +130,7 @@ export default function Navbar() {
                     {link.label}
                   </NavLink>
                 ))}
+                </nav>
 
                 <a
                   href="https://github.com/BunnyGreat/barangay-website/releases/download/v1.0.0/san-isidro-ebarangay.apk"
@@ -144,7 +149,7 @@ export default function Navbar() {
             </div>
           </div>
         )}
-      </nav>
+      </div>
     </header>
   );
 }

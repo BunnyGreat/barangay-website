@@ -212,8 +212,11 @@ export default function EmergencyHotlines() {
         </header>
 
         <div className="divide-y divide-white/70 px-6 py-2 sm:px-10 lg:grid lg:grid-cols-3 lg:divide-x lg:divide-y-0 lg:px-12 lg:py-8">
-          {hotlineColumns.map((column, index) => (
-            <HotlineColumn key={index} groups={column.groups} />
+          {hotlineColumns.map((column) => (
+            <HotlineColumn
+              key={column.groups.map(({ label }) => label).join("|")}
+              groups={column.groups}
+            />
           ))}
         </div>
 
