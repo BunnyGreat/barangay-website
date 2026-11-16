@@ -1,27 +1,25 @@
-﻿import { DARK_COLORS } from "../../utils/constants";
+import { DARK_COLORS } from "../../utils/constants";
 import useDarkMode from "../../hooks/useDarkMode";
 
 type OfficialCardProps = {
   image: string;
   position: string;
   name: string;
+  objectPosition?: string;
+  onClick?: () => void;
 };
 
 export default function OfficialCard({
   image,
   position,
   name,
+  objectPosition = "center",
+  onClick,
 }: OfficialCardProps) {
   const isDark = useDarkMode();
 
-  return (
-    <div
-      className="overflow-hidden rounded-[30px] border shadow-sm transition-colors duration-200"
-      style={{
-        backgroundColor: isDark ? DARK_COLORS.card : "#ffffff",
-        borderColor: isDark ? DARK_COLORS.cardBorder : "#e2e8f0",
-      }}
-    >
+  const cardContent = (
+    <>
       <div
         className="overflow-hidden rounded-t-[30px] transition-colors duration-200"
         style={{
@@ -30,9 +28,10 @@ export default function OfficialCard({
       >
         <img
           src={image}
-          alt={name}
+          alt={`${name}, ${position}`}
           loading="lazy"
           className="h-72 w-full object-cover"
+          style={{ objectPosition }}
         />
       </div>
 
@@ -43,7 +42,7 @@ export default function OfficialCard({
         }}
       >
         <p
-          className={`text-xs font-semibold uppercase tracking-[0.35em] transition-colors duration-200`}
+          className="text-xs font-semibold uppercase tracking-[0.35em] transition-colors duration-200"
           style={{ color: isDark ? DARK_COLORS.primary : "#004E9F" }}
         >
           {position}
@@ -56,6 +55,30 @@ export default function OfficialCard({
           {name}
         </h3>
       </div>
+    </>
+  );
+
+  return (
+    <div
+      className="overflow-hidden rounded-[30px] border shadow-sm transition-colors duration-200"
+      style={{
+        backgroundColor: isDark ? DARK_COLORS.card : "#ffffff",
+        borderColor: isDark ? DARK_COLORS.cardBorder : "#e2e8f0",
+      }}
+    >
+      {onClick ? (
+        <button
+          type="button"
+          className="block w-full text-center focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#004E9F]"
+          aria-haspopup="dialog"
+          aria-label={`View details for ${name}, ${position}`}
+          onClick={onClick}
+        >
+          {cardContent}
+        </button>
+      ) : (
+        cardContent
+      )}
     </div>
   );
 }

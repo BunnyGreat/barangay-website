@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import useDarkMode from "../../hooks/useDarkMode";
 
 type FAQItemProps = {
@@ -9,6 +9,7 @@ type FAQItemProps = {
 export default function FAQItem({ question, answer }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(false);
   const isDark = useDarkMode();
+  const answerId = useId();
 
   return (
     <div
@@ -27,6 +28,8 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls={answerId}
         className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
       >
         <h3
@@ -68,6 +71,7 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
 
       {isOpen && (
         <div
+          id={answerId}
           className="overflow-hidden animate-[slideDown_200ms_ease-out]"
           style={{
             borderTop: `1px solid ${isDark ? "#4D94FF" : "#e5e7eb"}`,

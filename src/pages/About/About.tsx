@@ -24,8 +24,8 @@ export default function About() {
       >
         <div className="mx-auto max-w-7xl">
           <CTA
-            title="Dedicated to Serving San Isidro"
-            description="Our administration works tirelessly to ensure that every resident has access to the resources they need to thrive."
+            title="Contact Barangay San Isidro"
+            description="View contact information, emergency hotlines, and the available inquiry form."
           />
         </div>
       </section>

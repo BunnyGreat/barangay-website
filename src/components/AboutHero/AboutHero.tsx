@@ -29,17 +29,14 @@ export default function AboutHero() {
         <div className="mx-auto max-w-7xl">
           <div className="max-w-2xl">
             <p className="text-3xl font-semibold uppercase tracking-[0.35em] leading-tight text-white sm:text-2xl">
-              FOUNDATION OF TRUST,
+              BARANGAY SAN ISIDRO,
               <br />
-              FUTURE OF SERVICE.
+              ABOUT OUR BARANGAY.
             </p>
 
             <p className="mt-8 text-base leading-8 text-white/90 sm:text-lg">
-              Our barangay is dedicated to promoting community growth, peace,
-              and development through responsible leadership and active citizen
-              participation. We work together to provide quality services,
-              maintain a safe environment, and improve the well-being of every
-              resident.
+              Learn about Barangay San Isidro, its published vision and
+              mission, and the officials serving the community.
             </p>
           </div>
         </div>

@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+.contact-form-field[data-theme="light"]:-webkit-autofill,
+.contact-form-field[data-theme="light"]:-webkit-autofill:hover,
+.contact-form-field[data-theme="light"]:-webkit-autofill:focus {
+  -webkit-text-fill-color: #0f172a;
+  -webkit-box-shadow: 0 0 0 1000px #f8fafc inset;
+  caret-color: #0f172a;
+}
+
+.contact-form-field[data-theme="dark"]:-webkit-autofill,
+.contact-form-field[data-theme="dark"]:-webkit-autofill:hover,
+.contact-form-field[data-theme="dark"]:-webkit-autofill:focus {
+  -webkit-text-fill-color: #e1e3e4;
+  -webkit-box-shadow: 0 0 0 1000px #070e1b inset;
+  caret-color: #e1e3e4;
+}

@@ -43,9 +43,7 @@ export default function DevelopmentTeam() {
             className="mt-3 text-base font-normal"
             style={{ color: isDark ? DARK_COLORS.paragraph : "#414753" }}
           >
-            Our team builds simple and secure tools to help our local community
-            run smoothly. With our skills in tech and data, we make daily work
-            easier and safer for everyone.
+            The team involved in developing this Barangay San Isidro website.
           </p>
         </div>
 

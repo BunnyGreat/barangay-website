@@ -7,24 +7,24 @@ type FAQ = {
 
 const faqData: FAQ[] = [
   {
-    question: "What is the Unified Management System?",
+    question: "What information is available on this website?",
     answer:
-      "The Unified Management System is a comprehensive digital platform designed to streamline barangay services and improve citizen engagement. It provides residents with easy access to permits, certificates, announcements, and community information all in one place.",
+      "You can read about Barangay San Isidro, view the listed barangay officials and committee assignments, and find contact information and emergency hotlines.",
   },
   {
-    question: "How do I use the mobile application?",
+    question: "Can I apply for barangay documents online?",
     answer:
-      "The mobile application allows you to access barangay services anytime, anywhere. Simply download the app, create an account with your barangay ID or personal information, and you can submit requests, track applications, and receive real-time notifications.",
+      "This website does not currently offer online document applications, payments, or request tracking. Contact the barangay office to confirm current requirements and procedures.",
   },
   {
-    question: "Can I request official documents online?",
+    question: "How can I send an inquiry?",
     answer:
-      "Yes, you can request official documents such as Barangay Clearance, Indigency Certificate, and Residency Certificate online through the system. Submit your request, pay the applicable fee, and receive your digital copies instantly.",
+      "Use the contact form on this page. Email delivery depends on the deployed contact service configuration. For urgent matters, use the listed emergency hotlines instead.",
   },
   {
-    question: "How secure is my personal data?",
+    question: "Is there an Android application?",
     answer:
-      "We prioritize data security with enterprise-grade encryption and blockchain technology. All personal information is stored securely and handled according to the highest standards of privacy and data protection regulations.",
+      "A downloadable Android application package is available from the navigation menu and Services page. APK installation requires a compatible Android device.",
   },
 ];
 

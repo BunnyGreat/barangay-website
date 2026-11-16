@@ -1,5 +1,6 @@
 import { buttonClassNames, DARK_COLORS } from "../../utils/constants";
 import useDarkMode from "../../hooks/useDarkMode";
+import { Link } from "react-router-dom";
 
 export type ServiceFeatureCardProps = {
   icon: string;
@@ -8,6 +9,7 @@ export type ServiceFeatureCardProps = {
   image?: string;
   badges?: string[];
   buttonText?: string;
+  buttonHref?: string;
   variant?: "light" | "primary";
 };
 
@@ -18,6 +20,7 @@ export default function ServiceFeatureCard({
   image,
   badges = [],
   buttonText,
+  buttonHref,
   variant = "light",
 }: ServiceFeatureCardProps) {
   const isDark = useDarkMode();
@@ -62,7 +65,9 @@ export default function ServiceFeatureCard({
 
   return (
     <article className={containerClass} style={containerStyle}>
-      <div className="grid grid-cols-1 md:grid-cols-[1.4fr_0.95fr] gap-6 items-start">
+      <div
+        className={`grid grid-cols-1 items-start gap-6 ${image ? "md:grid-cols-[1.4fr_0.95fr]" : ""}`}
+      >
         <div className="flex flex-col justify-between gap-6 h-full">
           <div className="space-y-5">
             <div className="space-y-4">
@@ -107,10 +112,11 @@ export default function ServiceFeatureCard({
             )}
           </div>
 
-          {buttonText && (
+          {buttonText && buttonHref && (
             <div>
-              <button
-                className={`${buttonClassNames.basePill} transition-colors duration-200 ${
+              <Link
+                to={buttonHref}
+                className={`${buttonClassNames.basePill} transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
                   isPrimary ? "bg-white text-blue-900" : ""
                 }`}
                 style={
@@ -123,10 +129,9 @@ export default function ServiceFeatureCard({
                       }
                     : undefined
                 }
-                type="button"
               >
                 {buttonText}
-              </button>
+              </Link>
             </div>
           )}
         </div>

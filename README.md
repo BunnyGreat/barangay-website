@@ -2,6 +2,39 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Contact form on Vercel
+
+The contact form uses the server-side `api/contact.ts` Vercel function. It
+accepts Gmail addresses only, sends through Resend to the configured barangay
+contact recipient, and enforces one accepted message per signed visitor cookie
+per calendar day in `Asia/Manila` using an atomic Upstash Redis reservation.
+The rate-limit record stores only a hash of the visitor identifier and the
+Manila calendar date.
+
+Configure these variables in Vercel Project Settings → Environment Variables,
+then redeploy:
+
+- `RESEND_API_KEY`: private Resend API key.
+- `RESEND_FROM_EMAIL`: permitted sender on the verified
+  `barangay-san-isidro.help` domain, for example
+  `Barangay San Isidro <contact@barangay-san-isidro.help>`.
+- `UPSTASH_REDIS_REST_URL`: Upstash Redis REST URL.
+- `UPSTASH_REDIS_REST_TOKEN`: private Upstash Redis REST token.
+- `CONTACT_COOKIE_SECRET`: a private random secret with at least 32 characters.
+  Generate one with
+  `node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'))"`.
+
+Keep all of these values server-side; never use `VITE_` variables for secrets.
+The signed visitor cookie is HttpOnly, SameSite=Lax, and Secure on production
+requests. It identifies a browser, not a person; without site authentication,
+clearing cookies or switching browsers creates a new visitor identity.
+
+The sender domain being verified does not configure the Resend API key, sender
+address, Upstash database, or Vercel environment variables. Email submission
+requires all five variables, the Vercel function deployment, and a sender
+address allowed by Resend. The Vite development server alone does not run this
+API function; use the Vercel development runtime to test the endpoint locally.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)

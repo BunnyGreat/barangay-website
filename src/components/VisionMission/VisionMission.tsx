@@ -58,49 +58,6 @@ export default function VisionMission() {
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div
-                  className="rounded-[24px] border-l-4 p-6 transition-colors duration-200"
-                  style={{
-                    borderLeftColor: isDark ? "#4D94FF" : "#004E9F",
-                    backgroundColor: isDark ? "#070E1B" : "#f3f4f6",
-                  }}
-                >
-                  <p
-                    className="text-xs font-semibold uppercase tracking-[0.35em] transition-colors duration-200"
-                    style={{ color: isDark ? "#4D94FF" : "#004E9F" }}
-                  >
-                    TARGET 2030
-                  </p>
-                  <p
-                    className="mt-3 text-lg font-semibold transition-colors duration-200"
-                    style={{ color: isDark ? DARK_COLORS.heading : "#1f2937" }}
-                  >
-                    100% Digital Literacy
-                  </p>
-                </div>
-
-                <div
-                  className="rounded-[24px] border-l-4 p-6 transition-colors duration-200"
-                  style={{
-                    borderLeftColor: isDark ? "#FCD400" : "#FCD400",
-                    backgroundColor: isDark ? "#070E1B" : "#f3f4f6",
-                  }}
-                >
-                  <p
-                    className="text-xs font-semibold uppercase tracking-[0.35em] transition-colors duration-200"
-                    style={{ color: isDark ? DARK_COLORS.heading : "#1f2937" }}
-                  >
-                    ECO-STANDARD
-                  </p>
-                  <p
-                    className="mt-3 text-lg font-semibold transition-colors duration-200"
-                    style={{ color: isDark ? DARK_COLORS.heading : "#1f2937" }}
-                  >
-                    Zero-Waste Barangay
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
 

@@ -23,7 +23,10 @@ export default function Navbar() {
     >
       <nav className="relative w-full">
         <div className="mx-auto max-w-9xl px-6 py-3 sm:px-8 lg:px-30 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
+          <Link
+            to="/"
+            className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#004E9F]"
+          >
             <img
               src={logo}
               alt="Barangay San Isidro logo"
@@ -45,7 +48,7 @@ export default function Navbar() {
               <NavLink
                 key={link.label}
                 to={link.to}
-                className="text-sm font-medium transition-colors duration-150"
+                className="text-sm font-medium transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#004E9F]"
                 style={({ isActive }) => ({
                   color: isActive
                     ? isDark
@@ -62,20 +65,22 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              disabled
-              className={`hidden md:inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition duration-150 disabled:cursor-not-allowed disabled:opacity-70`}
+            <a
+              href="/downloads/san-isidro-ebarangay.apk"
+              download="san-isidro-ebarangay.apk"
+              aria-label="Download the Barangay San Isidro Android app"
+              className="hidden items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition duration-150 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#004E9F] md:inline-flex"
               style={{
                 backgroundColor: isDark ? DARK_COLORS.primary : "#004E9F",
+                color: isDark ? "#000814" : "#ffffff",
               }}
             >
               <img src={phoneIcon} alt="Phone icon" className="h-4 w-4" />
-              Download Mobile App
-            </button>
+              Download Android App
+            </a>
 
             <button
-              className="inline-flex md:hidden items-center justify-center rounded-lg p-2 z-50 transition-colors duration-200"
+              className="inline-flex items-center justify-center rounded-lg p-2 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#004E9F] md:hidden"
               style={{
                 color: isDark ? DARK_COLORS.heading : "#1f2937",
                 backgroundColor: isDark ? DARK_COLORS.card : "#ffffff",
@@ -101,7 +106,7 @@ export default function Navbar() {
                   <NavLink
                     key={link.label}
                     to={link.to}
-                    className="block rounded-md px-3 py-2 text-base font-medium transition-colors duration-150"
+                    className="block rounded-md px-3 py-2 text-base font-medium transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#004E9F]"
                     style={({ isActive }) => ({
                       color: isActive
                         ? isDark
@@ -122,17 +127,19 @@ export default function Navbar() {
                   </NavLink>
                 ))}
 
-                <button
-                  type="button"
-                  disabled
-                  className={`mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white disabled:opacity-70 transition-colors duration-200`}
+                <a
+                  href="/downloads/san-isidro-ebarangay.apk"
+                  download="san-isidro-ebarangay.apk"
+                  aria-label="Download the Barangay San Isidro Android app"
+                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#004E9F]"
                   style={{
                     backgroundColor: isDark ? DARK_COLORS.primary : "#004E9F",
+                    color: isDark ? "#000814" : "#ffffff",
                   }}
                 >
                   <img src={phoneIcon} alt="Phone" className="h-4 w-4" />
-                  Download Mobile App
-                </button>
+                  Download Android App
+                </a>
               </div>
             </div>
           </div>

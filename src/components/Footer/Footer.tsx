@@ -70,7 +70,7 @@ export default function Footer() {
                   className="text-sm"
                   style={{ color: isDark ? DARK_COLORS.paragraph : undefined }}
                 >
-                  Unified Digital Management System
+                  Barangay information and contact details
                 </p>
               </div>
             </div>
@@ -79,8 +79,8 @@ export default function Footer() {
               className="mt-6 max-w-md"
               style={{ color: isDark ? DARK_COLORS.paragraph : undefined }}
             >
-              Empowering our community through transparent governance and
-              digital innovation for a better tomorrow.
+              Find information about barangay leadership, contact options, and
+              emergency hotlines.
             </p>
 
             <div className="flex items-center gap-3 mt-6">
@@ -249,7 +249,9 @@ export default function Footer() {
                     fill="currentColor"
                   />
                 </svg>
-                <span>+63 (02) 8123–4567</span>
+                <a href="tel:+63281234567" className="hover:underline">
+                  +63 (02) 8123–4567
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <svg
@@ -265,7 +267,12 @@ export default function Footer() {
                     fill="currentColor"
                   />
                 </svg>
-                <span>info@sanisidro.gov.ph</span>
+                <a
+                  href="mailto:info@sanisidro.gov.ph"
+                  className="break-all hover:underline"
+                >
+                  info@sanisidro.gov.ph
+                </a>
               </li>
             </ul>
           </div>
@@ -281,20 +288,14 @@ export default function Footer() {
           style={{ color: isDark ? DARK_COLORS.paragraph : undefined }}
         >
           <p>
-            © 2026 Barangay San Isidro, Rodriguez, Rizal UDMS. All Rights
-            Reserved.
+            © 2026 Barangay San Isidro, Rodriguez, Rizal. All Rights Reserved.
           </p>
-          <div className="mt-4 md:mt-0 flex gap-6">
-            <a className="hover:underline" href="#">
-              Privacy Policy
-            </a>
-            <a className="hover:underline" href="#">
-              Terms of Service
-            </a>
-            <a className="hover:underline" href="#">
-              Accessibility
-            </a>
-          </div>
+          <Link
+            to="/contact"
+            className="mt-4 hover:underline md:mt-0"
+          >
+            Contact
+          </Link>
         </div>
       </div>
     </footer>

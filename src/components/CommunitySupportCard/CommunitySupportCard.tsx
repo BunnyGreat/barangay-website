@@ -10,30 +10,29 @@ import peopleIconDark from "../../assets/icons/community-dark.svg";
 
 type SupportFeature = {
   icon: string;
+  darkIcon?: string;
   label: string;
 };
 
 const supportFeatures: SupportFeature[] = [
   {
     icon: warningIcon,
-    label: "Disaster Readiness",
+    darkIcon: warningIconDark,
+    label: "Use the listed hotlines for emergencies",
   },
   {
     icon: peopleIcon,
-    label: "Community Mediation",
+    darkIcon: peopleIconDark,
+    label: "Confirm service requirements with the office",
   },
   {
     icon: heartIcon,
-    label: "Health & Rescue Ops",
+    label: "Use the form for general inquiries",
   },
 ];
 
 export default function CommunitySupportCard() {
   const isDark = useDarkMode();
-
-  const getIcon = (lightIcon: string, darkIcon: string) => {
-    return isDark ? darkIcon : lightIcon;
-  };
 
   return (
     <div
@@ -58,7 +57,7 @@ export default function CommunitySupportCard() {
           className="text-2xl font-semibold transition-colors duration-200"
           style={{ color: isDark ? "#ffffff" : "#4D94FF" }}
         >
-          Public Safety & Community Support
+          Before You Contact Us
         </h3>
       </div>
 
@@ -66,27 +65,25 @@ export default function CommunitySupportCard() {
         className="mt-4 text-sm leading-7 transition-colors duration-200"
         style={{ color: isDark ? DARK_COLORS.paragraph : "#4b5563" }}
       >
-        Barangay San Isidro is committed to a safe, resilient, and supportive
-        environment. Our dedicated teams work in coordination with local
-        authorities to provide essential safety services and community welfare
-        programs.
+        This website provides information and contact options; online document
+        requests are not available. For urgent matters, call an emergency
+        number listed above instead of using the message form.
       </p>
 
       <ul className="mt-8 space-y-4">
         {supportFeatures.map((feature) => {
-          let iconSrc = feature.icon;
-          if (feature.label === "Disaster Readiness") {
-            iconSrc = getIcon(warningIcon, warningIconDark);
-          } else if (feature.label === "Community Mediation") {
-            iconSrc = getIcon(peopleIcon, peopleIconDark);
-          }
           return (
             <li key={feature.label} className="flex items-center gap-3">
               <div
                 className="flex h-9 w-9 items-center justify-center rounded-2xl transition-colors duration-200"
                 style={{ color: isDark ? "#4D94FF" : "#4D94FF" }}
               >
-                <img src={iconSrc} alt={feature.label} className="h-4 w-4" />
+                <img
+                  src={isDark ? (feature.darkIcon ?? feature.icon) : feature.icon}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-4 w-4"
+                />
               </div>
               <span
                 className="text-sm font-medium transition-colors duration-200"

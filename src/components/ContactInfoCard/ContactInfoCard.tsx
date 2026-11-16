@@ -76,12 +76,13 @@ export default function ContactInfoCard() {
             >
               Phone Number
             </p>
-            <p
+            <a
+              href="tel:+63281234567"
               className="mt-2 text-sm font-semibold"
               style={{ color: isDark ? "#ffffff" : "#ffffff" }}
             >
               +63 (02) 8123–4567
-            </p>
+            </a>
           </div>
         </div>
 
@@ -134,8 +135,8 @@ export default function ContactInfoCard() {
           color: isDark ? "rgba(225,227,228,0.7)" : "rgba(255,255,255,0.7)",
         }}
       >
-        For emergencies outside office hours, please dial our 24/7 hotline at
-        911 or the local police station.
+        For emergencies, call 911 or one of the emergency numbers listed on
+        this page.
       </p>
     </div>
   );
