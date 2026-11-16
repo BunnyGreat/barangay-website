@@ -34,6 +34,8 @@ address, Upstash database, or Vercel environment variables. Email submission
 requires all five variables, the Vercel function deployment, and a sender
 address allowed by Resend. The Vite development server alone does not run this
 API function; use the Vercel development runtime to test the endpoint locally.
+For the full setup, deployment, and testing walkthrough, see
+[docs/CONTACT_FORM_EMAIL_SETUP_GUIDE.md](./docs/CONTACT_FORM_EMAIL_SETUP_GUIDE.md).
 
 Currently, two official plugins are available:
 

@@ -66,7 +66,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-3">
             <a
-              href="/downloads/san-isidro-ebarangay.apk"
+              href="https://github.com/BunnyGreat/barangay-website/releases/download/v1.0.0/san-isidro-ebarangay.apk"
               download="san-isidro-ebarangay.apk"
               aria-label="Download the Barangay San Isidro Android app"
               className="hidden items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition duration-150 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#004E9F] md:inline-flex"
@@ -128,7 +128,7 @@ export default function Navbar() {
                 ))}
 
                 <a
-                  href="/downloads/san-isidro-ebarangay.apk"
+                  href="https://github.com/BunnyGreat/barangay-website/releases/download/v1.0.0/san-isidro-ebarangay.apk"
                   download="san-isidro-ebarangay.apk"
                   aria-label="Download the Barangay San Isidro Android app"
                   className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#004E9F]"

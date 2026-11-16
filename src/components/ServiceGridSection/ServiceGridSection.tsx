@@ -38,7 +38,7 @@ const services: Service[] = [
       "Download the Android application package. A compatible Android device is required to install APK files.",
     icon: phoneIcon,
     action: "Download APK",
-    href: "/downloads/san-isidro-ebarangay.apk",
+    href: "https://github.com/BunnyGreat/barangay-website/releases/download/v1.0.0/san-isidro-ebarangay.apk",
     download: true,
   },
 ];
